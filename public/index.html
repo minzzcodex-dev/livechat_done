@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Live Chat</title>
+
+  <style>
+    :root{ --gold-1:#f3cc3f; --gold-2:#b98800; --surface:#0f1115; --muted:#a1a1aa; --radius:20px;
+           --yellow:#ffd024; --text:#f8fafc; --card:#1a1d24; --stroke:#2a2e37; --safe-bottom: env(safe-area-inset-bottom, 0px); }
+    html,body{height:100%; background:var(--surface); color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin:0}
+    .wrap{min-height:100%; display:flex; flex-direction:column}
+    .hero{position:relative; padding:40px 20px 24px;
+      background: radial-gradient(1200px 600px at 30% -10%, var(--gold-1), transparent 60%),
+                  radial-gradient(900px 500px at 80% 0%, var(--gold-2), transparent 60%),
+                  linear-gradient(180deg, #0b0d11, #0f1115);}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand .logo{width:44px; height:44px; border-radius:50%; background:#111; overflow:hidden; border:1px solid #252a33}
+    .brand .logo img{width:100%; height:100%; object-fit:cover}
+    .title{margin:18px 0 8px; font-size:clamp(30px,6vw,44px); line-height:1.05; font-weight:800}
+    .card{margin:22px 0 0; background:var(--card); border:1px solid var(--stroke); border-radius:24px; padding:18px; box-shadow: 0 10px 40px rgba(0,0,0,.35);}
+    .agent{display:flex; align-items:center; gap:12px; margin-bottom:14px}
+    .agent .avatar{width:44px; height:44px; border-radius:999px; overflow:hidden; border:1px solid #2b2f38}
+    .agent .avatar img{width:100%; height:100%; object-fit:cover}
+    .agent .name{font-weight:700}
+    .agent .status{display:flex; align-items:center; gap:8px; color:#d1d5db}
+    .dot{width:10px; height:10px; border-radius:50%; background:#10b981; box-shadow:0 0 0 2px rgba(16,185,129,.35)}
+    .btn{margin-top:10px; display:inline-flex; align-items:center; justify-content:center; gap:10px;
+         width:100%; height:52px; border-radius:14px; font-weight:800; letter-spacing:.2px;
+         background:var(--yellow); color:#1a1d24; border:none; cursor:pointer;
+         box-shadow:0 14px 30px rgba(255,208,36,.22), inset 0 -2px 0 rgba(0,0,0,.2); text-decoration:none;}
+    .btn svg{width:18px; height:18px}
+    .grow{flex:1}
+    .bottombar{position:sticky; bottom:0; background:rgba(16,18,24,.8); backdrop-filter: blur(8px);
+               border-top:1px solid var(--stroke); padding:10px 14px calc(10px + var(--safe-bottom));}
+    .tabs{display:flex; gap:10px}
+    .tab{flex:1; display:flex; align-items:center; justify-content:center; gap:10px;
+         background:#171a21; border:1px solid var(--stroke); border-radius:16px; height:46px; color:#e5e7eb; text-decoration:none;}
+    .tab svg{width:18px; height:18px}
+    .tab.active{background:#0f1218; color:#fff; border-color:#2b2f38}
+    .powered{margin-top:8px; text-align:center; color:#a3a3a3; font-size:12px}
+    .container{max-width:760px; margin:0 auto}
+    @media(min-width:768px){ .hero{padding:56px 28px 32px} .card{padding:20px 20px 22px} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="container">
+        <div class="brand">
+          <div class="logo">
+  <img src="img/logo.png" alt="CAKWE 77" width="44" height="44">
+</div>
+          <div style="font-weight:700; font-size:14px; color:#e5e7eb">CAKWE77</div>
+        </div>
+
+        <h1 class="title">Selamat datang<br/>di CAKWE77</h1>
+
+        <div class="card">
+          <div class="agent">
+           <div class="avatar">
+  <img src="img/agent.jpg" alt="Agent" width="44" height="44">
+</div>
+
+            <div>
+              <div class="name">CAKWE77</div>
+              <div class="status"><span class="dot"></span><span>Halo. Ada yang bisa saya bantu?</span></div>
+            </div>
+          </div>
+
+          <!-- GUNAKAN <a href> BUKAN <button> -->
+          <a class="btn" href="https://livechat.cakwe77.icu/public/chat.html">
+            <span>Ngobrol sekarang</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grow"></div>
+
+    <div class="bottombar">
+      <div class="container">
+        <div class="tabs">
+          <a class="tab active" href="#">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-10.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <span>Beranda</span>
+          </a>
+
+          <!-- TAB OBROLAN LANGSUNG KE chat.html -->
+          <a class="tab" href="http://localhost:8080/public/chat.html" id="openChatTab">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 8h10M7 12h6M5 20l3-3h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v13z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Obrolan</span>
+          </a>
+        </div>
+        <div class="powered">Powered by McX Dev</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tidak perlu JS openChat lagi karena kita pakai <a href> -->
+</body>
+</html>
