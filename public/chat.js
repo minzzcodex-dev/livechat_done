@@ -52,7 +52,7 @@
     function pushMsg(role, content, isImage=false){
       const row = el('div','msg '+role);
       // ✅ perbaikan domain avatar:
-      const pp  = el('div','pp','<img src="https://i.ibb.co/jkVLzKJ9/cewe-img.jpg" alt="pp">');
+      const pp  = el('div','pp','<img src="img/agent.jpg" alt="pp">');
       const bubble = el('div','bubble');
 
       if (isImage){
